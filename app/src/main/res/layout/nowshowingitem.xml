@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/now_rela"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/recy_image"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="20dp"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/recy_text1"
+        android:layout_width="30dp"
+        android:layout_height="17dp"
+        android:layout_below="@id/recy_image"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="-21dp"
+        android:text="9.4"
+        android:textColor="#ff0000" />
+
+    <TextView
+        android:id="@+id/recy_text2"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/recy_text1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="悲伤牛流程和"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/recy_but"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/recy_text2"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/but"
+        android:text="购票"
+        android:textColor="#ffffff" />
+</RelativeLayout>

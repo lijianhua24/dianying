@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#141931"
+    tools:context=".view.YyXqActivity">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:gravity="center"
+                android:text="影院详情"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/invalid_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="20dp"
+                    android:text="保利国际影城(龙旗广场店)"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="18.8dp"
+                    android:layout_marginLeft="316dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@mipmap/emptyheart" />
+
+                <TextView
+                    android:id="@+id/yyxq_recy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="60dp"
+                    android:textColor="#d3af56"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginLeft="265dp"
+                    android:layout_marginTop="63dp"
+                    android:text="ㅙ"
+                    android:textColor="#fff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="287dp"
+                    android:layout_marginTop="62dp"
+                    android:text="到这里去"
+                    android:textColor="#fff"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/yyxq_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="161dp"
+                    app:tabTextColor="#fff">
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/yyxq_page"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="199dp">
+
+                </androidx.viewpager.widget.ViewPager>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    <Button
+        android:background="#e8185e"
+        android:id="@+id/yyxq_paiqi"
+        android:text="查看该影院电影排期"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+</RelativeLayout>
