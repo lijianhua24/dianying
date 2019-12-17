@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
+    android:id="@+id/linear"
     android:layout_height="wrap_content">
 
 
@@ -10,6 +11,7 @@
         android:id="@+id/four_tab"
         android:layout_width="280dp"
         android:layout_height="150dp"
+        app:isClipChildrenMode="true"
         app:isClipChildrenModeLessThree="true"
         >
 

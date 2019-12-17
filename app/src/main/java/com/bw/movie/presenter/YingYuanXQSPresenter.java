@@ -16,8 +16,8 @@ public class YingYuanXQSPresenter extends BasePresenter<HomeConteract.YingYuanXq
     }
 
     @Override
-    public void getYingYuanXqPresenter(String userId, String sessionId, String movieId) {
-        loginModel.getYingYuanXqDataModel(userId, sessionId, movieId, new HomeConteract.YingYuanXqContreact.IModel.IModelCallback() {
+    public void getYingYuanXqPresenter( String userId, String sessionId,String movieId) {
+        loginModel.getYingYuanXqDataModel( userId,sessionId,movieId, new HomeConteract.YingYuanXqContreact.IModel.IModelCallback() {
             @Override
             public void onYingYuanXqSuccess(YingYuanXQBean data) {
                 if (isViewAttached()) {
@@ -32,5 +32,15 @@ public class YingYuanXQSPresenter extends BasePresenter<HomeConteract.YingYuanXq
                 getView().onYingYuanXqFailure(e);
             }
         });
+    }
+
+    @Override
+    public void getYYGZXqPresenter(String userId, String sessionId, String cinemaId) {
+
+    }
+
+    @Override
+    public void getQXYYGZXqPresenter(String userId, String sessionId, String cinemaId) {
+
     }
 }

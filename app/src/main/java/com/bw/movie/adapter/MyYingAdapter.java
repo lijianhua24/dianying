@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import com.bumptech.glide.Glide;
 import com.bw.movie.R;
 import com.bw.movie.app.Constant;
 import com.bw.movie.bean.ReBean;
+import com.bw.movie.view.GouPiaoActivity;
 import com.bw.movie.view.XQActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -72,6 +74,19 @@ public class MyYingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                         context.startActivity(intent);
                     }
                 });
+                ((MyViewHolder) holder).recy_but.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String movieId = list.get(position).getMovieId();
+                        SharedPreferences name = context.getSharedPreferences("users", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor edit = name.edit();
+                        edit.putString("movieId",movieId);
+                        edit.commit();
+                        Intent intent = new Intent();
+                        intent.setClass(context, GouPiaoActivity.class);
+                        context.startActivity(intent);
+                    }
+                });
             }
     }
 
@@ -83,6 +98,7 @@ public class MyYingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         private final SimpleDraweeView imageView;
         private final RelativeLayout now_rela;
+        private final Button recy_but;
         private final TextView textView,recy_text1;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -91,6 +107,7 @@ public class MyYingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             textView = itemView.findViewById(R.id.recy_text1);
             recy_text1 = itemView.findViewById(R.id.recy_text2);
             now_rela = itemView.findViewById(R.id.now_rela);
+            recy_but = itemView.findViewById(R.id.recy_but);
         }
     }
     public setChangeAdapter setChangeAdapter;

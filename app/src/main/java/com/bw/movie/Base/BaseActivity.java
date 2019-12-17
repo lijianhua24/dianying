@@ -6,7 +6,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bw.movie.Utils.NetUtil;
+import com.bw.movie.app.App;
+import com.bw.movie.utils.ActivityCollectorUtil;
+import com.bw.movie.utils.NetUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -33,6 +35,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(provideLayoutId());
+        ActivityCollectorUtil.addActivity(this);
         mUnbinder = ButterKnife.bind(this);
         mPresenter = providePresenter();
         if (mPresenter != null) {
@@ -40,6 +43,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         }
         initView();
         initData();
+        
+
     }
 
     protected abstract P providePresenter();

@@ -5,8 +5,11 @@ import android.util.Log;
 import com.bw.movie.Base.BasePresenter;
 import com.bw.movie.app.Constant;
 import com.bw.movie.bean.LoginBean;
+import com.bw.movie.bean.WxBean;
 import com.bw.movie.contract.HomeConteract;
 import com.bw.movie.model.LoginModel;
+
+import org.greenrobot.greendao.annotation.Id;
 
 public class LoginPresenter extends BasePresenter<HomeConteract.LoginContreact.IView> implements HomeConteract.LoginContreact.IPresenter {
     public static final String TAG = "LoginPresenter";
@@ -37,6 +40,25 @@ public class LoginPresenter extends BasePresenter<HomeConteract.LoginContreact.I
             public void onFailure(Throwable e) {
                 if (isViewAttached()) {
                     getView().onFailure(e);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getWXPresenter(String code) {
+        loginModel.getWXLoginDataModel(code, new HomeConteract.LoginContreact.IModel.IModelWXCallback() {
+            @Override
+            public void onSuccess(WxBean data) {
+                if (isViewAttached()){
+                    getView().onWXSuccess(data);
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable e) {
+                if (isViewAttached()){
+                    getView().onWXFailure(e);
                 }
             }
         });

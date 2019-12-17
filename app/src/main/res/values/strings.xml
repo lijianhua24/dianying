@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">dianying</string>
+    <string name="app_name">维度电影</string>
     <string name="yxh">请输入邮箱账号</string>
     <string name="pwd">请输入密码</string>
     <string name="yzm">请输入验证码</string>

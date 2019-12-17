@@ -14,12 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bw.movie.R;
 import com.bw.movie.bean.XQBean;
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
-import fm.jiecao.jcvideoplayer_lib.JCBuriedPoint;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 public class YuGaoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private Context context;
@@ -40,8 +39,8 @@ public class YuGaoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         if (holder instanceof  MyHolder){
             if (list!=null){
                 String videoUrl = list.get(position).getVideoUrl();
-                ((MyHolder) holder).image.setUp(videoUrl,null);
-                Glide.with(context).load(list.get(position).getImageUrl()).into(((MyHolder) holder).image.ivThumb);
+                ((MyHolder) holder).image.setUp(videoUrl, JCVideoPlayer.SCREEN_LAYOUT_NORMAL,"");
+                Glide.with(context).load(list.get(position).getImageUrl()).into(((MyHolder) holder).image.thumbImageView);
             }
         }
     }
@@ -52,7 +51,7 @@ public class YuGaoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     }
     public class MyHolder extends RecyclerView.ViewHolder{
 
-        private final JCVideoPlayer image;
+        private final JCVideoPlayerStandard image;
 
         public MyHolder( View itemView) {
             super(itemView);

@@ -2,14 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#141931"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".fragment.yingyuanxiangqing.YYXQFragment">
-
-    <WebView
-        android:id="@+id/yyxq_web"
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp_20"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </WebView>
-
+        android:layout_height="wrap_content">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:background="@mipmap/icon_location"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24" />
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:text="海淀区"
+            android:textColor="#fff"
+            android:id="@+id/yyxq_dizhi"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:background="@mipmap/dianhua"
+            android:layout_marginLeft="24dp"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24" />
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:text="海淀区"
+            android:id="@+id/yyxq_dianhua"
+            android:textSize="12sp"
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginLeft="24dp"
+        android:text="乘车路线:"
+        android:layout_marginTop="@dimen/dp_20"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="@dimen/dp_16"
+        android:textSize="12sp"
+        android:textColor="#fff"
+        android:id="@+id/yyxq_luxian"
+        android:layout_marginRight="@dimen/dp_24"
+        android:layout_marginLeft="@dimen/dp_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

@@ -2,11 +2,14 @@ package com.bw.movie.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,6 +24,7 @@ import com.bw.movie.bean.ChaBean;
 import com.bw.movie.bean.JjBean;
 import com.bw.movie.bean.ReBean;
 import com.bw.movie.view.GengDuoActivity;
+import com.bw.movie.view.XQActivity;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -43,6 +47,9 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<JjBean.ResultBean> jj;
     private static List<BannerBean.ResultBean> banners;
     private Context context;
+    public static final String TAG = "MyAdapter";
+    private static setChanges setChanges;
+
 
     public MyAdapter(FragmentActivity activity, List<ReBean.ResultBean> relist, List<ChaBean.ResultBean> cha, List<JjBean.ResultBean> jj, List<BannerBean.ResultBean> banner) {
         this.context = activity;
@@ -50,6 +57,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.cha = cha;
         this.jj = jj;
         this.banners = banner;
+
     }
 
     @NonNull
@@ -92,6 +100,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                             }
                         });
                         ((myFourHolder) holder).tab.loadImage(new XBanner.XBannerAdapter() {
+
+
                             @Override
                             public void loadBanner(XBanner banner, Object model, View view, int position) {
                                 String imageUrl = banners.get(position).getImageUrl();
@@ -101,9 +111,25 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                         .setAutoPlayAnimations(true)
                                         .build();
                                 simpleDraweeView.setController(controller);
-
+                                simpleDraweeView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        String rank = banners.get(position).getJumpUrl();
+                                        String[] split = rank.split("=");
+                                        String s = split[1];
+                                        Intent intent = new Intent();
+                                        SharedPreferences name = context.getSharedPreferences("users", Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor edit = name.edit();
+                                        edit.putString("movieId",s);
+                                        edit.commit();
+                                        intent.setClass(context, XQActivity.class);
+                                        context.startActivity(intent);
+                                    }
+                                });
                             }
+
                         });
+
 
                     }
 
@@ -118,14 +144,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         ((myOneHolder) holder).onecy.setLayoutManager(linearLayoutManager);
                         MyYingAdapter myYingAdapter = new MyYingAdapter(context, relist);
                         ((myOneHolder) holder).onecy.setAdapter(myYingAdapter);
-                        myYingAdapter.getLinsenter(new MyYingAdapter.setChangeAdapter() {
-                            @Override
-                            public void getChang(String movie) {
-                                if (setChangeAdapter != null) {
-                                    setChangeAdapter.getChang(movie);
-                                }
-                            }
-                        });
+
                         ((myOneHolder) holder).more.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -141,18 +160,23 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         ((myTwoHolder) holder).twocy.setLayoutManager(new LinearLayoutManager(context));
                         MyJYingAdapter myJYingAdapter = new MyJYingAdapter(context, jj);
                         ((myTwoHolder) holder).twocy.setAdapter(myJYingAdapter);
-                        myJYingAdapter.getLinsenter(new MyJYingAdapter.setChangeAdapter() {
-                            @Override
-                            public void getChang(String movie) {
-                                if (setChangeAdapter != null) {
-                                    setChangeAdapter.getChang(movie);
-                                }
-                            }
-                        });
+
                         ((myTwoHolder) holder).more2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 context.startActivity(new Intent(context, GengDuoActivity.class));
+                            }
+                        });
+                        myJYingAdapter.getLinsenter(new MyJYingAdapter.setChangeAdapter() {
+                            @Override
+                            public void getChang(String movie) {
+                                Log.d(TAG, "getChang1: " + movie);
+                                if (movie!=null){
+                                        if (jj!=null){
+                                            com.bw.movie.adapter.MyAdapter.setChanges.getChanges(movie);
+                                            notifyDataSetChanged();
+                                        }
+                                }
                             }
                         });
                     }
@@ -241,20 +265,20 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class myFourHolder extends RecyclerView.ViewHolder {
 
         private final XBanner tab;
+        private final LinearLayout linear;
 
         public myFourHolder(@NonNull View itemView) {
             super(itemView);
             tab = itemView.findViewById(R.id.four_tab);
+            linear = itemView.findViewById(R.id.linear);
         }
     }
 
-    public setChangeAdapter setChangeAdapter;
-
-    public void getLinsenter(setChangeAdapter setChangeAdapter) {
-        this.setChangeAdapter = setChangeAdapter;
+    public void getLisenter(setChanges setChanges) {
+        this.setChanges = setChanges;
     }
 
-    public interface setChangeAdapter {
-        void getChang(String movie);
+    public interface setChanges {
+        void getChanges(String movieid);
     }
 }

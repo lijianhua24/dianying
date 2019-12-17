@@ -111,12 +111,14 @@
                          android:layout_height="wrap_content" />
                         <ImageView
                             android:background="@mipmap/emptyheart"
+                            android:id="@+id/xq_guanzhu"
                             android:layout_width="20dp"
                             android:layout_marginLeft="311dp"
                             android:layout_marginTop="29dp"
                             android:layout_height="19dp" />
                      <TextView
                          android:text="已关注"
+                         android:id="@+id/xq_guanzhutx"
                          android:textColor="#fff"
                          android:textSize="10sp"
                          android:layout_marginLeft="306dp"

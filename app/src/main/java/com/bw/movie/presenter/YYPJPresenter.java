@@ -15,8 +15,8 @@ public class YYPJPresenter extends BasePresenter<HomeConteract.YingYuanPJContrea
     }
 
     @Override
-    public void getYingYuanPJPresenter(String userId, String sessionId, String cinemaId, Integer page, String count) {
-        loginModel.getYingYuanPJDataModel(userId, sessionId, cinemaId, page, count, new HomeConteract.YingYuanPJContreact.IModel.IModelCallback() {
+    public void getYingYuanPJPresenter(String cinemaId, Integer page, String count) {
+        loginModel.getYingYuanPJDataModel(cinemaId, page, count, new HomeConteract.YingYuanPJContreact.IModel.IModelCallback() {
             @Override
             public void onYingYuanPJSuccess(YYPJBean data) {
                 if (isViewAttached()){

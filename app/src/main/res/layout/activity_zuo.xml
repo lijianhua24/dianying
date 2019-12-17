@@ -32,14 +32,14 @@
                     android:textColor="#fff"
                     android:textSize="16sp" />
 
-                <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
+                <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
                     android:id="@+id/zuo_pin"
                     android:layout_width="280dp"
                     android:layout_height="120dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="21dp">
 
-                </fm.jiecao.jcvideoplayer_lib.JCVideoPlayer>
+                </fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/zuo_xuan"
@@ -48,6 +48,51 @@
                     android:layout_marginTop="70dp">
 
                 </androidx.recyclerview.widget.RecyclerView>
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:background="@drawable/my_shape"
+                        android:layout_width="20dp"
+                        android:button="@null"
+                        android:layout_height="20dp" />
+                    <TextView
+                        android:textSize="10sp"
+                        android:text="可选"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#fff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <CheckBox
+                        android:background="@drawable/myyy_shape"
+                        android:layout_width="20dp"
+                        android:button="@null"
+                        android:layout_marginLeft="57dp"
+                        android:layout_height="20dp" />
+                    <TextView
+                        android:textSize="10sp"
+                        android:text="已售"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#fff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <CheckBox
+                        android:background="@drawable/myy_shape"
+                        android:layout_width="20dp"
+                        android:button="@null"
+                        android:layout_marginLeft="57dp"
+                        android:layout_height="20dp" />
+                    <TextView
+                        android:textSize="10sp"
+                        android:text="选中"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#fff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -55,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="28dp"
-                android:layout_marginTop="500dp"
+                android:layout_marginTop="550dp"
                 android:text="选择影厅和时间(6)"
                 android:textColor="#fff"
                 android:textSize="14sp" />
@@ -69,7 +114,7 @@
                 android:id="@+id/zuo_jia"
                 android:layout_alignParentBottom="true"
                 android:background="#e8185e"
-                android:text="$132.6"
+                android:text="支付0.00元"
                 android:gravity="center"
                 android:textSize="14sp"
                 android:textColor="#fff"

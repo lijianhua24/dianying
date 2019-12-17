@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,14 +23,25 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class SouActivity extends BaseActivity<SouPresenter> implements HomeConteract.SouContreact.IView {
 
-    public static final String TAG="SouActivity";
+    public static final String TAG = "SouActivity";
     @BindView(R.id.sou_edit)
     EditText souEdit;
     @BindView(R.id.sou_recy)
     RecyclerView souRecy;
+    @BindView(R.id.title_fanhui)
+    ImageView titleFanhui;
+    @BindView(R.id.title_biaoti)
+    TextView titleBiaoti;
+    @BindView(R.id.meiyou_tu)
+    ImageView meiyouTu;
+    @BindView(R.id.meiyou_xinxi)
+    TextView meiyouXinxi;
+    @BindView(R.id.zong)
+    LinearLayout zong;
 
     @Override
     protected SouPresenter providePresenter() {
@@ -45,8 +59,8 @@ public class SouActivity extends BaseActivity<SouPresenter> implements HomeConte
             @Override
             public void onClick(View v) {
                 String s = souEdit.getText().toString();
-                if (s!=null){
-                    mPresenter.getSouPresenter(s,"1","10");
+                if (s != null) {
+                    mPresenter.getSouPresenter(s, "1", "10");
                 }
             }
         });
@@ -60,16 +74,22 @@ public class SouActivity extends BaseActivity<SouPresenter> implements HomeConte
 
     @Override
     public void onSouSuccess(SouBean data) {
-        Log.d(TAG, "onSouSuccess: "+data.getMessage());
+        Log.d(TAG, "onSouSuccess: " + data.getMessage());
         String message = data.getMessage();
         List<SouBean.ResultBean> result = data.getResult();
 
-            if (message.contains("未查到相关电影")){
-                Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
-            }else {
-                souRecy.setLayoutManager(new LinearLayoutManager(this));
-                souRecy.setAdapter(new souAdapter(this,result));
-            }
+        if (message.contains("未查到相关电影")) {
+            zong.setVisibility(View.VISIBLE);
+            meiyouTu.setImageResource(R.mipmap.zanwujieguo);
+            meiyouXinxi.setText("没有相关内容结果换个词试试吧");
+            souRecy.setVisibility(View.GONE);
+        }else {
+            zong.setVisibility(View.GONE);
+            souRecy.setVisibility(View.VISIBLE);
+            souRecy.setLayoutManager(new LinearLayoutManager(this));
+            souRecy.setAdapter(new souAdapter(this, result));
+        }
+
     }
 
     @Override
@@ -78,4 +98,10 @@ public class SouActivity extends BaseActivity<SouPresenter> implements HomeConte
     }
 
 
+
+
+    @OnClick(R.id.title_fanhui)
+    public void onViewClicked() {
+        finish();
+    }
 }

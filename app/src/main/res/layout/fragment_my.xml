@@ -3,219 +3,169 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#141931"
-    >
-
-    <LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#141931">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="173dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:background="@drawable/mybei">
+        android:layout_height="@dimen/dp_153"
+        android:background="@mipmap/nixai">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_marginTop="61dp"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_22"
+            android:layout_marginRight="@dimen/dp_164"
+            android:layout_marginLeft="@dimen/dp_164"
             android:text="我的"
-            android:textColor="#ffffff"
-            />
-
-    </LinearLayout>
-    <ImageView
-        android:src="@mipmap/xxx"
-        android:layout_width="22dp"
-        android:layout_marginTop="66dp"
-        android:layout_marginLeft="400dp"
-        android:layout_height="17dp" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="380dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="114dp"
-        android:id="@+id/jiacard"
-        android:layout_marginLeft="25dp">
-
-        <ImageView
-            android:id="@+id/header_image"
-            android:layout_marginTop="20dp"
-            android:layout_width="60dp"
-            android:layout_marginLeft="10dp"
-            android:src="@mipmap/wd2"
-            android:layout_height="60dp" />
-        <TextView
-            android:text="电影故事"
-            android:textSize="17sp"
-            android:textColor="#000"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="350dp"
-            android:layout_marginTop="40dp"
-            android:src="@mipmap/shapw" />
-    </androidx.cardview.widget.CardView>
-
-    <LinearLayout
-        android:layout_width="380dp"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:background="#1c2243"
-        android:id="@+id/jiadianyingpiao"
-        android:layout_below="@id/jiacard"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="25dp"
-        >
-        <ImageView
-            android:src="@mipmap/wddy"
-            android:layout_marginTop="17dp"
-            android:layout_marginLeft="20dp"
-            android:layout_width="24dp"
-            android:layout_height="24dp" />
-        <TextView
-            android:layout_marginLeft="20dp"
-            android:textSize="14dp"
-            android:text="电影票"
             android:textColor="#fff"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_marginTop="@dimen/dp_41"
+            android:textSize="16dp"/>
         <ImageView
-            android:src="@mipmap/www"
-            android:layout_marginTop="17dp"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="240dp"
-            />
-    </LinearLayout>
+            android:id="@+id/wd_xinxi"
+            android:background="@mipmap/xinxi"
+            android:layout_width="@dimen/dp_22"
+            android:layout_height="@dimen/dp_17"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_17"
+            android:layout_marginTop="@dimen/dp_41"/>
+    </RelativeLayout>
     <LinearLayout
-        android:layout_width="380dp"
-        android:layout_height="275dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/jiadianyingpiao"
+        android:gravity="center"
         android:orientation="vertical"
-        android:background="@drawable/mybianjiao"
-        >
-        <RadioGroup
-            android:layout_width="380dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="@dimen/dp_312"
+            android:layout_height="@dimen/dp_90"
+            android:layout_marginTop="@dimen/dp_94"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:layout_marginRight="@dimen/dp_24"
+            android:background="@drawable/line_fragment_mine">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/wd_touxiang"
+                android:background="@mipmap/haha"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_width="@dimen/dp_46"
+                android:layout_height="@dimen/dp_46" />
+            <TextView
+                android:text="电影故事"
+                android:textSize="16sp"
+                android:id="@+id/wd_nicheng"
+                android:layout_gravity="center_vertical"
+                android:textColor="#000"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/wd_wdxx"
+                android:background="@mipmap/shape"
+                android:layout_width="8dp"
+                android:layout_marginLeft="@dimen/dp_138"
+                android:layout_gravity="center_vertical"
+                android:layout_height="@dimen/dp_12" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/wd_wdyp"
+            android:layout_width="@dimen/dp_312"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_24"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_height="66dp">
-            <RadioButton
-                android:layout_width="68dp"
-                android:layout_height="66dp"
-                android:button="@null"
-                android:drawableTop="@mipmap/group_2"
-                android:text="我的关注"
-                android:textColor="#deffffff"
-                android:textSize="12sp"
-                android:gravity="center"
-                android:paddingTop="10dp"
-                android:layout_weight="1"
-                ></RadioButton>
-            <RadioButton
-                android:layout_width="68dp"
-                android:layout_height="66dp"
-                android:button="@null"
-                android:drawableTop="@mipmap/group_4"
-                android:text="我的预约"
-                android:textColor="#deffffff"
-                android:textSize="12sp"
-                android:gravity="center"
-                android:paddingTop="10dp"
-                android:layout_weight="1"
-                ></RadioButton>
-            <RadioButton
-                android:layout_width="68dp"
-                android:layout_height="66dp"
-                android:button="@null"
-                android:drawableTop="@mipmap/goupiaojilu"
-                android:text="购票记录"
-                android:textColor="#deffffff"
-                android:textSize="12sp"
-                android:gravity="center"
-                android:paddingTop="10dp"
-                android:layout_weight="1"
-                ></RadioButton>
-        </RadioGroup>
+            android:background="@drawable/line2_fragment_mine">
+            <ImageView
+                android:background="@mipmap/wodedianyingpiao"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_20" />
+            <TextView
+                android:text="电影票"
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:background="@mipmap/shape"
+                android:layout_marginLeft="@dimen/dp_188"
+                android:layout_width="@dimen/dp_7"
+                android:layout_gravity="center_vertical"
+                android:layout_height="@dimen/dp_12" />
+        </LinearLayout>
+        <GridLayout
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="@dimen/dp_312"
+            android:layout_height="@dimen/dp_235"
+            android:layout_marginRight="@dimen/dp_24"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:columnCount="3"
+            android:rowCount="3"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_20"
+            android:paddingLeft="@dimen/dp_18"
+            android:background="@mipmap/rectangle_26_copy_2">
 
-        <RadioGroup
-            android:layout_width="380dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_height="66dp">
-            <RadioButton
-                android:layout_width="68dp"
-                android:layout_height="66dp"
-                android:button="@null"
-                android:drawableTop="@mipmap/chongzhijilu"
-                android:text="看过的电影"
-                android:textColor="#deffffff"
-                android:textSize="12sp"
-                android:gravity="center"
-                android:paddingTop="10dp"
-                android:layout_weight="1"
-                ></RadioButton>
-            <RadioButton
-                android:layout_width="68dp"
-                android:layout_height="66dp"
-                android:button="@null"
-                android:drawableTop="@mipmap/group_3"
-                android:text="我的评论"
-                android:textColor="#deffffff"
-                android:textSize="12sp"
-                android:gravity="center"
-                android:paddingTop="10dp"
-                android:layout_weight="1"
-                ></RadioButton>
-            <RadioButton
-                android:layout_width="68dp"
-                android:layout_height="66dp"
-                android:button="@null"
-                android:drawableTop="@mipmap/yijianfankui_01"
-                android:text="意见反馈"
-                android:textColor="#deffffff"
-                android:textSize="12sp"
-                android:gravity="center"
-                android:paddingTop="10dp"
-                android:layout_weight="1"
-                ></RadioButton>
-        </RadioGroup>
-
-        <RadioGroup
-            android:layout_width="380dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_height="66dp">
-            <RadioButton
-                android:layout_width="68dp"
-                android:layout_height="66dp"
-                android:button="@null"
-                android:drawableTop="@mipmap/invalid_name"
-                android:text="设置"
-                android:textColor="#deffffff"
-                android:textSize="12sp"
-                android:gravity="center"
-                android:paddingTop="10dp"
-                android:layout_weight="1"
-                ></RadioButton>
-            <RadioButton
-                android:layout_width="68dp"
-                android:layout_height="66dp"
-                android:button="@null"
-                android:layout_weight="1"
-                ></RadioButton>
-            <RadioButton
-                android:layout_width="68dp"
-                android:layout_height="66dp"
-                android:button="@null"
-                android:layout_weight="1"
-                ></RadioButton>
-        </RadioGroup>
+            <ImageView
+                android:id="@+id/wd_guanzhu"
+                android:background="@mipmap/gz"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_46" />
+            <LinearLayout
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginLeft="@dimen/dp_60"
+                android:layout_marginRight="@dimen/dp_30"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/wd_yuyue"
+                    android:background="@mipmap/yy"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#deffffff"
+                    android:text="我的预约"
+                    android:layout_marginTop="@dimen/dp_10"/>
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/goupiao_jilu"
+                android:background="@mipmap/jjs"
+                android:layout_width="@dimen/dp_48"
+                android:layout_marginLeft="@dimen/dp_42"
+                android:layout_height="@dimen/dp_46" />
+            <ImageView
+                android:id="@+id/wd_kanguo"
+                android:background="@mipmap/kg"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginTop="@dimen/dp_30"/>
+            <ImageView
+                android:id="@+id/wd_pinglun"
+                android:background="@mipmap/pl"
+                android:layout_width="@dimen/dp_48"
+                android:layout_marginTop="@dimen/dp_30"
+                android:layout_marginLeft="@dimen/dp_60"
+                android:layout_height="@dimen/dp_46" />
+            <ImageView
+                android:id="@+id/wd_fankui"
+                android:background="@mipmap/fk"
+                android:layout_width="@dimen/dp_48"
+                android:layout_marginTop="@dimen/dp_30"
+                android:layout_marginLeft="@dimen/dp_42"
+                android:layout_height="@dimen/dp_46" />
+            <ImageView
+                android:id="@+id/img_sz"
+                android:background="@mipmap/shezhi"
+                android:layout_width="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_27"
+                android:layout_marginLeft="@dimen/dp_18"
+                android:layout_height="@dimen/dp_46" />
+        </GridLayout>
     </LinearLayout>
 
 </RelativeLayout>

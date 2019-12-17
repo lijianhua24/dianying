@@ -14,10 +14,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.bw.movie.R;
+import com.bw.movie.bean.XQBean;
 import com.bw.movie.fragment.DianYingFragment;
 import com.bw.movie.fragment.WoDeFragment;
 import com.bw.movie.fragment.YingYuanFragment;
 import com.bw.movie.myview.CustomScrollViewPager;
+import com.bw.movie.utils.ActivityCollectorUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -58,7 +62,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_z);
         ButterKnife.bind(this);
-
+        ActivityCollectorUtil.addActivity(this);
         list.add(new DianYingFragment());
         list.add(new YingYuanFragment());
         list.add(new WoDeFragment());
@@ -137,5 +141,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         return super.onKeyDown(keyCode, event);
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollectorUtil.addActivity(this);
+    }
 }

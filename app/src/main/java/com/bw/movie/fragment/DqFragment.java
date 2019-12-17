@@ -1,6 +1,10 @@
 package com.bw.movie.fragment;
 
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +29,12 @@ public class DqFragment extends BaseFragment<DqPresenter> implements HomeContera
     RecyclerView dpDprecy;
     @BindView(R.id.dp_yingyuan)
     RecyclerView dpYingyuan;
+    @BindView(R.id.meiyou_tu)
+    ImageView meiyouTu;
+    @BindView(R.id.meiyou_xinxi)
+    TextView meiyouXinxi;
+    @BindView(R.id.zong)
+    LinearLayout zong;
 
     @Override
     protected DqPresenter providePresenter() {
@@ -38,7 +48,14 @@ public class DqFragment extends BaseFragment<DqPresenter> implements HomeContera
 
     @Override
     protected void initView() {
-        mPresenter.getFindPresenter();
+
+        if (hasNetwork()){
+            mPresenter.getFindPresenter();
+        }else {
+            zong.setVisibility(View.VISIBLE);
+            meiyouTu.setImageResource(R.mipmap.wuwang);
+            meiyouXinxi.setText("暂无网络");
+        }
     }
 
     @Override
@@ -56,9 +73,9 @@ public class DqFragment extends BaseFragment<DqPresenter> implements HomeContera
         findAdapter.setOnClickListenter(new FindAdapter.setChangListenter() {
             @Override
             public void getChang(String id) {
-               if (id!=null){
-                   mPresenter.getLoginPresenter(id);
-               }
+                if (id != null) {
+                    mPresenter.getLoginPresenter(id);
+                }
             }
         });
     }
@@ -73,7 +90,7 @@ public class DqFragment extends BaseFragment<DqPresenter> implements HomeContera
         Log.d(TAG, "onCinemaSuccess: " + data.getMessage());
         List<CinemaBean.ResultBean> result = data.getResult();
         dpYingyuan.setLayoutManager(new LinearLayoutManager(getActivity()));
-        dpYingyuan.setAdapter(new CinemaAdapter(getActivity(),result));
+        dpYingyuan.setAdapter(new CinemaAdapter(getActivity(), result));
     }
 
     @Override

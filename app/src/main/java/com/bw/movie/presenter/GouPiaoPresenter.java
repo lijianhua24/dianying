@@ -4,6 +4,7 @@ import com.bw.movie.Base.BasePresenter;
 import com.bw.movie.bean.GjsjcyyBean;
 import com.bw.movie.bean.TimeBean;
 import com.bw.movie.bean.XQBean;
+import com.bw.movie.bean.ZuiDiBean;
 import com.bw.movie.contract.HomeConteract;
 import com.bw.movie.fragment.FindBean;
 import com.bw.movie.model.LoginModel;
@@ -21,8 +22,8 @@ public class GouPiaoPresenter extends BasePresenter<HomeConteract.GPContreact.IV
     }
 
     @Override
-    public void getXQPresenter(String userId, String sessionId, String page) {
-        loginModel.getXQDataModel(userId, sessionId, page, new HomeConteract.XQContreact.IModel.IModelCallback() {
+    public void getXQPresenter( String page) {
+        loginModel.getXQDataModel(page, new HomeConteract.XQContreact.IModel.IModelCallback() {
             @Override
             public void onTjyySuccess(XQBean data) {
                 if (isViewAttached()){
@@ -121,6 +122,27 @@ public class GouPiaoPresenter extends BasePresenter<HomeConteract.GPContreact.IV
                     if (isViewAttached()){
                         getView().onDQYYFailure(e);
                     }
+            }
+        });
+    }
+
+    @Override
+    public void getZuiDiPresenter(String movieId, String page, String count) {
+        loginModel.getZuiDiDataModel(movieId, page, count, new HomeConteract.GPContreact.IModel.IModelZuidiCallback() {
+            @Override
+            public void onZuiDiSuccess(GjsjcyyBean data) {
+                if (isViewAttached()){
+                    if (data!=null && data.getStatus().equals("0000")){
+                        getView().onZuiDiSuccess(data);
+                    }
+                }
+            }
+
+            @Override
+            public void onZuiDiFailure(Throwable e) {
+                if (isViewAttached()){
+                    getView().onZuiDiFailure(e);
+                }
             }
         });
     }

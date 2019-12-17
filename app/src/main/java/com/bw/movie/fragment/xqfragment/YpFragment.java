@@ -43,7 +43,7 @@ public class YpFragment extends BaseFragment<YingPingPresenter> implements HomeC
         String sessionId = sharedPreferences.getString("sessionId", "");
         String userId = sharedPreferences.getString("userId", "");
         if (sessionId != null && userId != null && movieId != null) {
-            mPresenter.getPingLunPresenter(userId, sessionId, movieId, 1, "10");
+            mPresenter.getPingLunPresenter( movieId, 1, "10");
         }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         yingpingRecy.setLayoutManager(linearLayoutManager);

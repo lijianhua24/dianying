@@ -1,38 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bw.movie">
-
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 用于写入缓存数据到扩展存储卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 用于申请获取蓝牙信息进行室内定位 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".app.App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/tubiao2"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.XYPActivity"></activity>
+        <activity android:name=".view.MainActivity"></activity>
+        <activity android:name=".view.YPXQActivity" />
+        <activity android:name=".view.GengXinActivity" />
+        <activity android:name=".view.TuiChuActivity" />
+        <activity android:name=".wxapi.WXPayEntryActivity" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.XiuGaiActivity" />
+        <activity android:name=".view.SheZhiActivity" />
+        <activity android:name=".view.WdActivity" />
+        <activity android:name=".view.XinXiActivity" />
+        <activity android:name=".view.FanKuiActivity" />
+        <activity android:name=".view.WDPLActivity" />
+        <activity android:name=".view.KanGuoActivity" />
+        <activity android:name=".view.WdYpActivity" />
+        <activity android:name=".view.YuYueActivity" />
+        <activity android:name=".view.GuanZhuActivity" />
+        <activity android:name=".view.GouPiaoJiLuActivity" />
+        <activity android:name=".view.XYPActivity" />
         <activity android:name=".view.PaiQiActivity" />
         <activity android:name=".view.GengDuoActivity" />
-        <activity android:name=".view.ZuoActivity" />
+        <activity
+            android:name=".view.ZuoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
         <activity android:name=".view.SouActivity" />
         <activity android:name=".view.YyXqActivity" />
-        <activity android:name=".view.GouPiaoActivity" />
-        <activity android:name=".view.XQActivity" />
+        <activity
+            android:name=".view.GouPiaoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.XQActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
         <activity android:name=".view.HomeActivity" />
         <activity android:name=".view.RegisterActivity" />
-        <activity android:name=".view.MainActivity">
+        <activity android:name=".view.YinDaoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- 定位 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="4307dcc069e3a5a8d0d75ff85ac2cb88" />
+
+        <service android:name="com.amap.api.location.APSService" />
 
         <meta-data
             android:name="design_width_in_dp"

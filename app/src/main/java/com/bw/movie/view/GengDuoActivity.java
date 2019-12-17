@@ -12,6 +12,7 @@ import android.os.Bundle;
 
 import com.bw.movie.R;
 import com.bw.movie.fragment.gengduo.GengDuoFragment;
+import com.bw.movie.utils.ActivityCollectorUtil;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class GengDuoActivity extends AppCompatActivity {
         }
         gengduo_pager.setAdapter(new GengDuoAdapter(getSupportFragmentManager()));
         gengduo_tab.setupWithViewPager(gengduo_pager);
+        ActivityCollectorUtil.addActivity(this);
     }
     class GengDuoAdapter extends FragmentPagerAdapter{
         public GengDuoAdapter(@NonNull FragmentManager fm) {
@@ -59,5 +61,11 @@ public class GengDuoActivity extends AppCompatActivity {
             return list.get(position);
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollectorUtil.removeActivity(this);
     }
 }

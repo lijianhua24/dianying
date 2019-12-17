@@ -53,6 +53,7 @@ public class TimesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 ((MyViewHolder) holder).gengduo_text4.setText("评分:    "+result.get(position).getScore());
                 Uri parse = Uri.parse(result.get(position).getImageUrl());
                 ((MyViewHolder) holder).imageView.setImageURI(parse);
+
                 ((MyViewHolder) holder).times_rela.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

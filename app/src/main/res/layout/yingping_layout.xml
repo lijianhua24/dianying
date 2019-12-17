@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#141931"
     android:orientation="vertical"
+    android:layout_marginTop="@dimen/dp_0_5"
     android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_marginLeft="24dp"
@@ -15,6 +16,17 @@
             android:id="@+id/yingping_image"
             android:layout_width="44dp"
             android:layout_height="44dp" />
+        <RatingBar
+            android:id="@+id/filmcinecism"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_marginTop="52dp"
+            android:layout_marginLeft="78dp"
+            android:progressTint="#fff"
+            android:progressBackgroundTint="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+
+            android:numStars="5" />
         <TextView
             android:textSize="12sp"
             android:id="@+id/yingping_name"
@@ -56,9 +68,10 @@
     </RelativeLayout>
    <LinearLayout
        android:layout_marginTop="2dp"
-       android:background="#fff"
+       android:background="@mipmap/line"
+
        android:layout_marginLeft="24dp"
        android:layout_marginRight="24dp"
        android:layout_width="match_parent"
-       android:layout_height="2dp"></LinearLayout>
+       android:layout_height="wrap_content"></LinearLayout>
 </LinearLayout>

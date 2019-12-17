@@ -105,4 +105,9 @@ public class GengduoPresenter extends BasePresenter<HomeConteract.Dianying.IView
             }
         });
     }
+
+    @Override
+    public void getYuYuePresenter(String userId, String sessionId, String movieId) {
+
+    }
 }

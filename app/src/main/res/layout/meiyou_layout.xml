@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#141931"
+    android:gravity="center"
+    android:id="@+id/zong"
+    android:visibility="gone"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+<ImageView
+    android:id="@+id/meiyou_tu"
+    android:layout_width="@dimen/dp_164"
+    android:layout_height="@dimen/dp_164" />
+    <TextView
+        android:id="@+id/meiyou_xinxi"
+        android:text="暂无关注信息"
+        android:textSize="14sp"
+        android:layout_alignBottom="@id/meiyou_tu"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textColor="#fff"
+        android:layout_width="@dimen/dp_164"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bw.movie.Base.BaseFragment;
 import com.bw.movie.R;
 import com.bw.movie.adapter.JuZhaoAdapter;
+import com.bw.movie.bean.GZDYBean;
+import com.bw.movie.bean.QXDYGZBean;
 import com.bw.movie.bean.XQBean;
 import com.bw.movie.contract.HomeConteract;
 import com.bw.movie.presenter.JzPresenter;
@@ -43,7 +45,7 @@ public class JzFragment extends BaseFragment<JzPresenter> implements HomeContera
         String sessionId = sharedPreferences.getString("sessionId", "");
         String userId = sharedPreferences.getString("userId", "");
         if (sessionId != null && userId != null && movieId != null) {
-            mPresenter.getXQPresenter(userId, sessionId, movieId);
+            mPresenter.getXQPresenter( movieId);
         }
     }
 
@@ -64,6 +66,36 @@ public class JzFragment extends BaseFragment<JzPresenter> implements HomeContera
 
     @Override
     public void onXQFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onXQSSuccess(XQBean data) {
+
+    }
+
+    @Override
+    public void onXQSFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onGZDYSuccess(GZDYBean data) {
+
+    }
+
+    @Override
+    public void onGZDYFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onQXDYGZSuccess(QXDYGZBean data) {
+
+    }
+
+    @Override
+    public void onQXDYGFailure(Throwable e) {
 
     }
 }

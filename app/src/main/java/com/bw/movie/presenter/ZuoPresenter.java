@@ -2,7 +2,9 @@ package com.bw.movie.presenter;
 
 import com.bw.movie.Base.BasePresenter;
 import com.bw.movie.bean.XQBean;
+import com.bw.movie.bean.XiaDanBean;
 import com.bw.movie.bean.YingTingBean;
+import com.bw.movie.bean.ZhiFuBean;
 import com.bw.movie.bean.ZuoBean;
 import com.bw.movie.contract.HomeConteract;
 import com.bw.movie.model.LoginModel;
@@ -17,8 +19,8 @@ public class ZuoPresenter extends BasePresenter<HomeConteract.ZuoContreact.IView
     }
 
     @Override
-    public void getXQPresenter(String userId, String sessionId, String page) {
-        loginModel.getXQDataModel(userId, sessionId, page, new HomeConteract.XQContreact.IModel.IModelCallback() {
+    public void getXQPresenter( String page) {
+        loginModel.getXQDataModel( page, new HomeConteract.XQContreact.IModel.IModelCallback() {
             @Override
             public void onTjyySuccess(XQBean data) {
                 if (isViewAttached()) {
@@ -74,6 +76,48 @@ public class ZuoPresenter extends BasePresenter<HomeConteract.ZuoContreact.IView
             public void onZuoFailure(Throwable e) {
                 if (isViewAttached()) {
                     getView().onZuoFailure(e);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getXD(String userId, String sessionId, String scheduleId, String seat, String sign) {
+        loginModel.getXDDataModel(userId, sessionId, scheduleId, seat, sign, new HomeConteract.ZuoContreact.IModel.IModelXDCallback() {
+            @Override
+            public void onXDSuccess(XiaDanBean data) {
+                if (isViewAttached()) {
+                    if (data != null && data.getStatus().equals("0000")) {
+                        getView().onXDSuccess(data);
+                    }
+                }
+            }
+
+            @Override
+            public void onXDFailure(Throwable e) {
+                if (isViewAttached()) {
+                    getView().onXDFailure(e);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getZF(String userId, String sessionId, String payType, String orderId) {
+        loginModel.getZFDataModel(userId, sessionId, payType, orderId, new HomeConteract.ZuoContreact.IModel.IModelZFCallback() {
+            @Override
+            public void onZFSuccess(ZhiFuBean data) {
+                if (isViewAttached()){
+                    if (data != null && data.getStatus().equals("0000")) {
+                        getView().onZFSuccess(data);
+                    }
+                }
+            }
+
+            @Override
+            public void onZFFailure(Throwable e) {
+                if (isViewAttached()) {
+                    getView().onZFFailure(e);
                 }
             }
         });

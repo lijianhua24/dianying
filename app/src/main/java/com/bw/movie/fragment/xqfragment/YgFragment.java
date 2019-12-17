@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bw.movie.Base.BaseFragment;
 import com.bw.movie.R;
 import com.bw.movie.adapter.YuGaoAdapter;
+import com.bw.movie.bean.GZDYBean;
+import com.bw.movie.bean.QXDYGZBean;
 import com.bw.movie.bean.XQBean;
 import com.bw.movie.contract.HomeConteract;
 import com.bw.movie.presenter.YuGaoPresenter;
@@ -16,6 +18,7 @@ import com.bw.movie.presenter.YuGaoPresenter;
 import java.util.List;
 
 import butterknife.BindView;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 
 
 public class YgFragment extends BaseFragment<YuGaoPresenter> implements HomeConteract.XQContreact.IView {
@@ -42,7 +45,7 @@ public class YgFragment extends BaseFragment<YuGaoPresenter> implements HomeCont
         String sessionId = sharedPreferences.getString("sessionId", "");
         String userId = sharedPreferences.getString("userId", "");
         if (sessionId != null && userId != null && movieId != null) {
-            mPresenter.getXQPresenter(userId, sessionId, movieId);
+            mPresenter.getXQPresenter( movieId);
         }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         ygRecy.setLayoutManager(linearLayoutManager);
@@ -65,5 +68,41 @@ public class YgFragment extends BaseFragment<YuGaoPresenter> implements HomeCont
     @Override
     public void onXQFailure(Throwable e) {
 
+    }
+
+    @Override
+    public void onXQSSuccess(XQBean data) {
+
+    }
+
+    @Override
+    public void onXQSFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onGZDYSuccess(GZDYBean data) {
+
+    }
+
+    @Override
+    public void onGZDYFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onQXDYGZSuccess(QXDYGZBean data) {
+
+    }
+
+    @Override
+    public void onQXDYGFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        JCVideoPlayer.releaseAllVideos();
     }
 }

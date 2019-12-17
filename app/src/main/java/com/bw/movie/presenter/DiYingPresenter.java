@@ -7,6 +7,7 @@ import com.bw.movie.bean.BannerBean;
 import com.bw.movie.bean.ChaBean;
 import com.bw.movie.bean.JjBean;
 import com.bw.movie.bean.ReBean;
+import com.bw.movie.bean.YuYueBean;
 import com.bw.movie.contract.HomeConteract;
 import com.bw.movie.model.LoginModel;
 
@@ -101,6 +102,27 @@ public class DiYingPresenter extends BasePresenter<HomeConteract.Dianying.IView>
             public void onBannerFailure(Throwable e) {
                 if (isViewAttached()) {
                     getView().onBannerFailure(e);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getYuYuePresenter(String userId, String sessionId, String movieId) {
+        loginModel.getYuYueModel(userId, sessionId, movieId, new HomeConteract.Dianying.IModel.IModelYuYueCallback() {
+            @Override
+            public void onYuYueSuccess(YuYueBean data) {
+                if (isViewAttached()) {
+                    if (data != null && data.getStatus().equals("0000")) {
+                        getView().onYuYueSuccess(data);
+                    }
+                }
+            }
+
+            @Override
+            public void onYuYueFailure(Throwable e) {
+                if (isViewAttached()) {
+                    getView().onYuYueFailure(e);
                 }
             }
         });

@@ -7,9 +7,11 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bw.movie.R;
 import com.bw.movie.bean.JjBean;
+import com.bw.movie.view.HomeActivity;
 import com.bw.movie.view.XQActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -56,7 +59,13 @@ public class MyJYingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
               ((MyViewHolder) holder).textView1.setText(simpleDateFormat.format(date)+"上映");
                 ((MyViewHolder) holder).textView2.setText(list.get(position).getWantSeeNum()+"人想看");
-               // Glide.with(context).load(list.get(position).getImageUrl()).into(((MyViewHolder) holder).imageView);
+                String whetherReserve = list.get(position).getWhetherReserve();
+                int i = Integer.parseInt(whetherReserve);
+                if (i==1){
+                    ((MyViewHolder) holder).recy2_but.setText("已预约");
+                    ((MyViewHolder) holder).recy2_but.setBackgroundResource(R.drawable.but2);
+                }
+                // Glide.with(context).load(list.get(position).getImageUrl()).into(((MyViewHolder) holder).imageView);
                 Uri parse = Uri.parse(list.get(position).getImageUrl());
                 ((MyViewHolder) holder).imageView.setImageURI(parse);
                 ((MyViewHolder) holder).recy2_rela.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +79,14 @@ public class MyJYingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                         edit.commit();
                         intent.setClass(context, XQActivity.class);
                         context.startActivity(intent);
+                    }
+                });
+                ((MyViewHolder) holder).recy2_but.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String movieId = list.get(position).getMovieId();
+                                setChangeAdapter.getChang(movieId);
+                                notifyDataSetChanged();
                     }
                 });
             }
@@ -86,6 +103,7 @@ public class MyJYingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         private final RelativeLayout recy2_rela;
         private final TextView textView1;
         private final TextView textView2;
+        private final Button recy2_but;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -94,6 +112,7 @@ public class MyJYingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             textView1 = itemView.findViewById(R.id.recy2_text2);
             textView2 = itemView.findViewById(R.id.recy2_text3);
             recy2_rela = itemView.findViewById(R.id.recy2_rela);
+            recy2_but = itemView.findViewById(R.id.recy2_but);
         }
     }
     public setChangeAdapter setChangeAdapter;
@@ -103,4 +122,5 @@ public class MyJYingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public interface setChangeAdapter{
         void getChang(String movie);
     }
+
 }

@@ -64,7 +64,7 @@ public class LoginBean {
 
         public static class UserInfoBean {
             /**
-             * email : fanyanlong1991@163.com
+             * email : fanyanString1991@163.com
              * headPic : http://172.17.8.100/images/movie/head_pic/bwjy.jpg
              * id : 13787
              * lastLogStringime : 1573460853000
@@ -75,7 +75,7 @@ public class LoginBean {
             private String email;
             private String headPic;
             private String id;
-            private long lastLogStringime;
+            private String lastLogStringime;
             private String nickName;
             private String sex;
 
@@ -103,11 +103,11 @@ public class LoginBean {
                 this.id = id;
             }
 
-            public long getLastLogStringime() {
+            public String getLastLogStringime() {
                 return lastLogStringime;
             }
 
-            public void setLastLogStringime(long lastLogStringime) {
+            public void setLastLogStringime(String lastLogStringime) {
                 this.lastLogStringime = lastLogStringime;
             }
 

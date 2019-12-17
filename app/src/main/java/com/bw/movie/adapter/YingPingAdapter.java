@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.FragmentActivity;
@@ -48,7 +49,10 @@ public class YingPingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 ((MyHolder) holder).time.setText(simpleDateFormat.format(date));
                 Uri parse = Uri.parse(list.get(position).getCommentHeadPic());
                 ((MyHolder) holder).image.setImageURI(parse);
-
+                double score = list.get(position).getScore();
+                String s = String.valueOf(score);
+                Float aFloat = Float.valueOf(s);
+                ((MyHolder) holder).filmcinecism.setRating(aFloat);
 
             }
         }
@@ -61,6 +65,7 @@ public class YingPingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public class MyHolder extends RecyclerView.ViewHolder{
 
         private final SimpleDraweeView image;
+        private final RatingBar filmcinecism;
         private final TextView dianzan,name,pinglun,time;
 
         public MyHolder( View itemView) {
@@ -70,6 +75,7 @@ public class YingPingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             name = itemView.findViewById(R.id.yingping_name);
             pinglun = itemView.findViewById(R.id.yingping_pinglun);
             time = itemView.findViewById(R.id.yingpingtime);
+            filmcinecism = itemView.findViewById(R.id.filmcinecism);
 
         }
     }

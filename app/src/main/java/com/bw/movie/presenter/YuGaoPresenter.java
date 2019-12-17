@@ -15,8 +15,8 @@ public class YuGaoPresenter extends BasePresenter<HomeConteract.XQContreact.IVie
     }
 
     @Override
-    public void getXQPresenter(String userId, String sessionId, String page) {
-            loginModel.getXQDataModel(userId, sessionId, page, new HomeConteract.XQContreact.IModel.IModelCallback() {
+    public void getXQPresenter( String page) {
+            loginModel.getXQDataModel( page, new HomeConteract.XQContreact.IModel.IModelCallback() {
                 @Override
                 public void onTjyySuccess(XQBean data) {
                     if (isViewAttached()){
@@ -33,5 +33,20 @@ public class YuGaoPresenter extends BasePresenter<HomeConteract.XQContreact.IVie
                     }
                 }
             });
+    }
+
+    @Override
+    public void getXQSPresenter(String userId, String sessionId, String page) {
+
+    }
+
+    @Override
+    public void getGZDYPresenter(String userId, String sessionId, String movieId) {
+
+    }
+
+    @Override
+    public void getQXGZPresenter(String userId, String sessionId, String movieId) {
+
     }
 }

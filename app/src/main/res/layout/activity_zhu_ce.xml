@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:layout_height="match_parent"
     tools:context=".view.RegisterActivity">
 
@@ -69,7 +70,8 @@
                 />
         </RelativeLayout>
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="@dimen/dp_312"
             android:layout_height="wrap_content">
 
             <EditText
@@ -89,7 +91,6 @@
                 android:layout_width="96dp"
                 android:layout_height="44dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="80dp"
                 android:background="@drawable/bei"
                 android:text="获取验证码"
                 android:layout_marginTop="10dp"
@@ -97,7 +98,8 @@
                 />
         </RelativeLayout>
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="@dimen/dp_312"
             android:layout_height="wrap_content">
 
             <TextView
@@ -108,7 +110,6 @@
                 android:textColor="#999999"
                 android:textSize="16sp"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="100dp"
                 android:id="@+id/jump_login"
                 />
         </RelativeLayout>

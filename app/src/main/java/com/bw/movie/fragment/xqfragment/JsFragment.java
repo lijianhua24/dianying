@@ -13,6 +13,8 @@ import com.bw.movie.Base.BaseFragment;
 import com.bw.movie.R;
 import com.bw.movie.adapter.DYAdapter;
 import com.bw.movie.adapter.YanYuanAdapter;
+import com.bw.movie.bean.GZDYBean;
+import com.bw.movie.bean.QXDYGZBean;
 import com.bw.movie.bean.XQBean;
 import com.bw.movie.contract.HomeConteract;
 import com.bw.movie.presenter.XQsPresenter;
@@ -56,7 +58,7 @@ public class JsFragment extends BaseFragment<XQsPresenter> implements HomeConter
         Log.d(TAG, "initView: " + sessionId + userId + movieId);
 
         if (sessionId != null && userId != null && movieId != null) {
-            mPresenter.getXQPresenter(userId, sessionId, movieId);
+            mPresenter.getXQPresenter(movieId);
         }
     }
 
@@ -91,6 +93,36 @@ public class JsFragment extends BaseFragment<XQsPresenter> implements HomeConter
 
     @Override
     public void onXQFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onXQSSuccess(XQBean data) {
+
+    }
+
+    @Override
+    public void onXQSFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onGZDYSuccess(GZDYBean data) {
+
+    }
+
+    @Override
+    public void onGZDYFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onQXDYGZSuccess(QXDYGZBean data) {
+
+    }
+
+    @Override
+    public void onQXDYGFailure(Throwable e) {
 
     }
 }

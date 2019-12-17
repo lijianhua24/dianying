@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_marginTop="@dimen/sp_16"
+    android:background="#141931"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/title_fanhui"
+        android:layout_marginLeft="@dimen/dp_28"
+        android:src="@mipmap/jiantou"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24" />
+    <TextView
+        android:layout_marginLeft="@dimen/dp_104"
+        android:textSize="@dimen/sp_16"
+        android:textColor="#fff"
+        android:id="@+id/title_biaoti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -2,6 +2,9 @@ package com.bw.movie.fragment.gengduo;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,8 +16,11 @@ import com.bw.movie.bean.BannerBean;
 import com.bw.movie.bean.ChaBean;
 import com.bw.movie.bean.JjBean;
 import com.bw.movie.bean.ReBean;
+import com.bw.movie.bean.YuYueBean;
 import com.bw.movie.contract.HomeConteract;
 import com.bw.movie.presenter.GengduoPresenter;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.List;
 
@@ -107,4 +113,15 @@ public class GengDuoFragment extends BaseFragment<GengduoPresenter> implements H
     public void onBannerFailure(Throwable e) {
 
     }
+
+    @Override
+    public void onYuYueSuccess(YuYueBean data) {
+
+    }
+
+    @Override
+    public void onYuYueFailure(Throwable e) {
+
+    }
+
 }

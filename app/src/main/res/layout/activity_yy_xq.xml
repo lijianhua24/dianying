@@ -43,6 +43,7 @@
                     android:layout_height="18.8dp"
                     android:layout_marginLeft="316dp"
                     android:layout_marginTop="20dp"
+                    android:id="@+id/yyxq_guanzhu"
                     android:background="@mipmap/emptyheart" />
 
                 <TextView

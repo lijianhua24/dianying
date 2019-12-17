@@ -37,11 +37,12 @@ public class YYPJFragment extends BaseFragment<YYPJPresenter> implements HomeCon
     @Override
     protected void initView() {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
-        String yyid = sharedPreferences.getString("yyid", "");
-        String sessionId = getActivity().getIntent().getStringExtra("sessionId");
-        String userId = getActivity().getIntent().getStringExtra("userId");
-        if (yyid != null) {
-            mPresenter.getYingYuanPJPresenter(userId, sessionId, yyid, 1, "10");
+        String sessionId = sharedPreferences.getString("sessionId", "");
+        String userId = sharedPreferences.getString("userId", "");
+        SharedPreferences sharedPreferences1 = getActivity().getSharedPreferences("yyid", Context.MODE_PRIVATE);
+        String id = sharedPreferences1.getString("id", "");
+        if (id != null) {
+            mPresenter.getYingYuanPJPresenter( id, 1, "10");
         }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         yypjRecy.setLayoutManager(linearLayoutManager);

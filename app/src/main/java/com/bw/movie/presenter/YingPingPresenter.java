@@ -15,8 +15,8 @@ public class YingPingPresenter extends BasePresenter<HomeConteract.PingLunContre
     }
 
     @Override
-    public void getPingLunPresenter(String userId, String sessionId, String movieId, Integer page, String count) {
-        loginModel.getPingLunDataModel(userId, sessionId, movieId, page, count, new HomeConteract.PingLunContreact.IModel.IModelCallback() {
+    public void getPingLunPresenter( String movieId, Integer page, String count) {
+        loginModel.getPingLunDataModel( movieId, page, count, new HomeConteract.PingLunContreact.IModel.IModelCallback() {
             @Override
             public void onPingLunSuccess(YingPingBean data) {
                 if (data!=null){

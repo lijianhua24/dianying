@@ -4,7 +4,7 @@
     android:layout_marginTop="20dp"
     android:gravity="center"
     android:layout_height="130dp">
-<fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
+<fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
     android:id="@+id/yugao_vide_view"
     android:layout_width="312dp"
     android:layout_height="match_parent" />

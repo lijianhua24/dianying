@@ -1,7 +1,6 @@
 package com.bw.movie.view;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,14 +10,13 @@ import android.widget.Toast;
 
 import com.bw.movie.Base.BaseActivity;
 import com.bw.movie.R;
-import com.bw.movie.Utils.EncryptUtil;
+import com.bw.movie.utils.EncryptUtil;
 import com.bw.movie.bean.EmailBean;
 import com.bw.movie.bean.RegisterBean;
 import com.bw.movie.contract.HomeConteract;
 import com.bw.movie.presenter.RegisPresenter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class RegisterActivity extends BaseActivity<RegisPresenter> implements HomeConteract.RegisterContract.IView {

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.bw.movie.Base.BaseActivity;
 import com.bw.movie.R;
+import com.bw.movie.app.App;
 import com.bw.movie.bean.XYPBean;
 import com.bw.movie.contract.HomeConteract;
 import com.bw.movie.presenter.XYPPresenter;
@@ -52,20 +53,24 @@ public class XYPActivity extends BaseActivity<XYPPresenter> implements HomeConte
     protected void initView() {
         SharedPreferences sharedPreferences2 = getSharedPreferences("Suser", Context.MODE_PRIVATE);
 
-        resultName = sharedPreferences2.getString("resultName", "");
-        SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
-        sessionId = sharedPreferences.getString("sessionId", "");
-        userId = sharedPreferences.getString("userId", "");
+        resultName = sharedPreferences2.getString("resultName", null);
+        sessionId = App.sharedPreferences.getString("sessionId", null);
+        userId = App.sharedPreferences.getString("userId", "");
         String stringExtra = getIntent().getStringExtra("ssss");
         xypTijiao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "sessionId: "+sessionId);
+                Log.d(TAG, "userId: "+userId);
                 if (userId != null && sessionId != null) {
                     String s = xypXyp.getText().toString();
                     float rating = xypFen.getRating();
                     Log.d(TAG, "onViewClicked: " +stringExtra);
                     mPresenter.getXYP(userId, sessionId, stringExtra, s, rating + "");
                     startActivity(new Intent(XYPActivity.this,XQActivity.class));
+                }else {
+                    Toast.makeText(XYPActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(XYPActivity.this,MainActivity.class));
                 }
             }
         });

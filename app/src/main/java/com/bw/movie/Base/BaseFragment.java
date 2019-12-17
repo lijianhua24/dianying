@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.bw.movie.Utils.NetUtil;
+import com.bw.movie.utils.NetUtil;
 import com.bw.movie.app.App;
 
 import butterknife.ButterKnife;

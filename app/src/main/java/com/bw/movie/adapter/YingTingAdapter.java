@@ -44,8 +44,10 @@ public class YingTingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 @Override
                 public void onClick(View v) {
                     String hallId = result.get(position).getHallId();
+                    String id = result.get(position).getId();
+                    double fare = result.get(position).getFare();
                     if (onSetChange!=null){
-                        onSetChange.getChange(hallId);
+                        onSetChange.getChange(hallId,id,fare);
                     }
                 }
             });
@@ -73,6 +75,6 @@ public class YingTingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     }
     public interface onSetChange{
-        void getChange(String name);
+        void getChange(String name,String id,double fare);
     }
 }

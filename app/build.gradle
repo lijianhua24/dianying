@@ -1,6 +1,24 @@
 apply plugin: 'com.android.application'
 
 android {
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\DELL\\Desktop\\movie.keystore')
+            storePassword '123456'
+            keyAlias = 'bw_movie'
+            keyPassword '123456'
+        }
+        replease {
+            storeFile file('C:\\Users\\DELL\\Desktop\\movie.keystore')
+            storePassword '123456'
+            keyAlias = 'bw_movie'
+            keyPassword '123456'
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -81,7 +99,30 @@ dependencies {
     //androidX 版本使用下面的依赖
     implementation 'com.github.xiaohaibin:XBanner:androidx_v1.0.2'
     //视频播放
-    implementation 'fm.jiecao:jiecaovideoplayer:2.0'
+    implementation 'fm.jiecao:jiecaovideoplayer:5.5'
     //EventBus依赖
     implementation 'org.greenrobot:eventbus:3.1.1'
+
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+
+    //高德地图
+    implementation 'com.amap.api:location:latest.integration'
+
+    //暴力点击
+    implementation 'com.github.liys666666:DoubleClick:V1.0.4'
+
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    //修改生日
+    implementation 'com.bigkoo:pickerview:2.0.8'
+
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+
+
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-4'
+    implementation 'com.android.support:design:26.1.0'
+//    compile "com.github.SibreiaDante:SiberiaDanteLib:v1.0.8"
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.jude:easyrecyclerview:4.4.2'
+    implementation 'me.codeboy.android:align-text-view:2.3.1'
+    implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
 }
